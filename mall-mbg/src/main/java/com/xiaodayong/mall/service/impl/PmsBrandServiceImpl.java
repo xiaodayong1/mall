@@ -3,6 +3,7 @@ package com.xiaodayong.mall.service.impl;/**
  * @Date : 2020/7/21 11:58
  */
 
+import com.github.pagehelper.PageHelper;
 import com.xiaodayong.mall.mapper.PmsBrandMapper;
 import com.xiaodayong.mall.model.PmsBrand;
 import com.xiaodayong.mall.model.PmsBrandExample;
@@ -30,4 +31,37 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     public List<PmsBrand> getAllList() {
         return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
+
+    @Override
+    public int creatBrand(PmsBrand brand) {
+        return pmsBrandMapper.insertSelective(brand);
+    }
+
+    @Override
+    public int updateBrand(long id, PmsBrand brand) {
+        brand.setId(id);
+
+        return pmsBrandMapper.updateByPrimaryKeySelective(brand);
+    }
+
+    @Override
+    public int deleteBrand(long id) {
+
+        return pmsBrandMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public List<PmsBrand> listBrand(Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
+    }
+
+    @Override
+    public PmsBrand getBrand(long id) {
+        return pmsBrandMapper.selectByPrimaryKey(id);
+    }
+
+
 }
