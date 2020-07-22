@@ -13,3 +13,6 @@ mall
    1.配置generator.properties 逆向工程配置文件
    2.Generator逆向工程主函数
    3.CommonGenerator逆向工程注释生成器
+
+### 7-22
+ 整合swagger2生成接口文档，修改generator的注释生成类集成swagger，使model带注释

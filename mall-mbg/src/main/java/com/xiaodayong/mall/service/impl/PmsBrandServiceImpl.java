@@ -1,7 +1,14 @@
-package com.xiaodayong.mall.service.impl;/**
- * @Author : xiao
- * @Date : 2020/7/21 11:58
- */
+package com.xiaodayong.mall.service.impl;
+
+import com.xiaodayong.mall.mapper.PmsBrandMapper;
+import com.xiaodayong.mall.model.PmsBrand;
+import com.xiaodayong.mall.model.PmsBrandExample;
+import com.xiaodayong.mall.service.PmsBrandService;
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+import java.util.List;
+
+
 
 import com.github.pagehelper.PageHelper;
 import com.xiaodayong.mall.mapper.PmsBrandMapper;
@@ -14,12 +21,17 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
+/*
+@Author : xiao
+ * @Date : 2020/7/21 11:58
+ **/
+/*
  * @program: my-mall
  * @description: 品牌管理service实现类
  * @author: Mr.Xiao
  * @create: 2020-07-21 11:58
- **/
+ */
+
 @Service
 public class PmsBrandServiceImpl implements PmsBrandService {
 

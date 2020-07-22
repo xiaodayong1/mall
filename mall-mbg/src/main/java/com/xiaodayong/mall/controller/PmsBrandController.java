@@ -1,13 +1,18 @@
-package com.xiaodayong.mall.controller;/**
+
+package com.xiaodayong.mall.controller;
+/**
  * @Author : xiao
  * @Date : 2020/7/21 11:33
  */
+
 
 import com.xiaodayong.mall.common.CommonPage;
 import com.xiaodayong.mall.common.CommonResult;
 import com.xiaodayong.mall.mapper.PmsBrandMapper;
 import com.xiaodayong.mall.model.PmsBrand;
 import com.xiaodayong.mall.service.PmsBrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +20,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 /**
  * @program: my-mall
  * @description: 品牌管理controller
  * @author: Mr.Xiao
  * @create: 2020-07-21 11:33
  **/
+
+@Api(tags = "PmsBrandController", description = "商品品牌管理")
 @Controller
 @RequestMapping("/brand")
 @Slf4j
@@ -30,7 +38,8 @@ public class PmsBrandController {
     private PmsBrandService pmsBrandService;
 
 
-    /**
+
+/**
      * 功能描述: <br>
      * 〈获取品牌列表〉
      * @Param: []
@@ -38,13 +47,16 @@ public class PmsBrandController {
             * @Author: xiaodayong
             * @Date: 2020/7/21 14:58
      */
+
+    @ApiOperation("获取所有品牌列表")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(pmsBrandService.getAllList());
     }
 
-    /**
+
+/**
      * 功能描述: <br>
      * 〈创建品牌〉
      * @Param: [brand]
@@ -52,6 +64,7 @@ public class PmsBrandController {
             * @Author: xiaodayong
             * @Date: 2020/7/21 15:06
      */
+
     @RequestMapping(value = "/creat",method = RequestMethod.POST)
     @ResponseBody
     public CommonResult creatBrand(@RequestBody PmsBrand brand){
@@ -69,7 +82,8 @@ public class PmsBrandController {
         return commonResult;
     }
 
-    /**
+
+/**
      * 功能描述: <br>
      * 〈修改品牌信息〉
      * @Param: [id, brand]
@@ -77,6 +91,7 @@ public class PmsBrandController {
             * @Author: xiaodayong
             * @Date: 2020/7/21 16:44
      */
+
     @ResponseBody
     @RequestMapping(value = "/update/{id}",method = RequestMethod.POST)
     public CommonResult updateBrand(@PathVariable("id") long id,@RequestBody PmsBrand brand){
@@ -94,7 +109,8 @@ public class PmsBrandController {
         return commandResult;
     }
 
-    /**
+
+/**
      * 功能描述: <br>
      * 〈根据id删除品牌〉
      * @Param: [id]
@@ -102,6 +118,7 @@ public class PmsBrandController {
             * @Author: xiaodayong
             * @Date: 2020/7/21 17:07
      */
+
     @RequestMapping(value = "/delete/{id}" ,method = RequestMethod.GET)
     @ResponseBody
     public CommonResult  deleteBrand(@PathVariable("id") long id){
@@ -118,7 +135,8 @@ public class PmsBrandController {
         return commandResult;
     }
 
-    /**
+
+/**
      * 功能描述: <br>
      * 〈分页查询〉
      * @Param: [pageNum, pageSize]
@@ -126,6 +144,7 @@ public class PmsBrandController {
             * @Author: xiaodayong
             * @Date: 2020/7/21 17:28
      */
+
     @RequestMapping(value = "/list" ,method = RequestMethod.GET)
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum",defaultValue ="1") Integer pageNum,
                                                           @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
@@ -140,3 +159,4 @@ public class PmsBrandController {
     }
 
 }
+

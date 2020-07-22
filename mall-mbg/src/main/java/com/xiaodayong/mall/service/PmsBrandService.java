@@ -6,8 +6,9 @@ import java.util.List;
 
 /**
  * @Author : xiao
- * @Date : 2020/7/21 11:57
- */
+ * @Date : 2020/7/21 11:57*/
+
+
 public interface PmsBrandService {
     List<PmsBrand> getAllList();
 
