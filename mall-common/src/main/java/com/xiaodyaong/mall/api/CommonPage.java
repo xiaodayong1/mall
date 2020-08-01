@@ -1,4 +1,4 @@
-package com.xiaodayong.mall.common;
+package com.xiaodyaong.mall.api;
 
 import com.github.pagehelper.PageInfo;
 

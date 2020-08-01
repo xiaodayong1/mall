@@ -1,4 +1,4 @@
-package com.xiaodayong.mall.common;/**
+package com.xiaodyaong.mall.api;/**
  * @Author : xiao
  * @Date : 2020/7/21 13:55
  */

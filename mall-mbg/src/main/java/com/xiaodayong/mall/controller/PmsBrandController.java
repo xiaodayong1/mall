@@ -5,12 +5,10 @@ package com.xiaodayong.mall.controller;
  * @Date : 2020/7/21 11:33
  */
 
-
-import com.xiaodayong.mall.common.CommonPage;
-import com.xiaodayong.mall.common.CommonResult;
-import com.xiaodayong.mall.mapper.PmsBrandMapper;
 import com.xiaodayong.mall.model.PmsBrand;
 import com.xiaodayong.mall.service.PmsBrandService;
+import com.xiaodyaong.mall.api.CommonPage;
+import com.xiaodyaong.mall.api.CommonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 /**
  * @program: my-mall
@@ -36,8 +33,6 @@ public class PmsBrandController {
 
     @Autowired
     private PmsBrandService pmsBrandService;
-
-
 
 /**
      * 功能描述: <br>
@@ -147,7 +142,7 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/list" ,method = RequestMethod.GET)
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum",defaultValue ="1") Integer pageNum,
-                                                          @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
+                                                        @RequestParam(value = "pageSize",defaultValue = "3") Integer pageSize){
         List<PmsBrand> pmsBrandList=pmsBrandService.listBrand(pageNum,pageSize);
         return CommonResult.success(CommonPage.restPage(pmsBrandList));
     }
